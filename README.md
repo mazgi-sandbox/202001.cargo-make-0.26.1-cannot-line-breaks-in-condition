@@ -1,6 +1,22 @@
 # 202001.cargo-make-0.26.1-cannot-line-breaks-in-condition
 
-Does cargo-make cannot parse the Makefile if it included line breaks in a condition statement?
+~~Does cargo-make cannot parse the Makefile if it included line breaks in a condition statement?~~
+
+=> This behavior is correct that depends on TOML spec.
+
+See also:
+
+- https://github.com/sagiegurari/cargo-make/issues/372#issuecomment-578108906
+- https://github.com/toml-lang/toml#keys
+
+We can set conditions as multiple lines with "dotted keys" [like this](https://github.com/mazgi-sandbox/202001.cargo-make-0.26.1-cannot-line-breaks-in-condition/blob/523e63582b110fe68d309f38985228691ea6b5ba/respect-toml-spec.toml#L10-L11).
+
+```toml
+condition.foo = [...]
+condition.bar = [...]
+```
+
+---
 
 ## How to Representation
 
@@ -56,8 +72,10 @@ skip_core_tasks = true
 condition = { files_exist = ["${CARGO_MAKE_WORKING_DIRECTORY}/README.md"], files_not_exist = ["${CARGO_MAKE_WORKING_DIRECTORY}/not-exist"] }
 ```
 
-The case **with line breaks** in the condition statement.  
-...fail :fearful:
+~~The case **with line breaks** in the condition statement.~~  
+~~...fail :fearful:~~
+
+=> This behavior is correct!
 
 ```shellsession
 ❯ bin/cargo-make make --makefile with-line-breaks.toml
