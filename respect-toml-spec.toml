@@ -1,0 +1,11 @@
+# See
+# - https://github.com/sagiegurari/cargo-make/issues/372#issuecomment-578108906
+# - https://github.com/toml-lang/toml#keys
+
+[config]
+min_version = "0.26.1"
+skip_core_tasks = true
+
+[tasks.default]
+condition.files_exist = ["${CARGO_MAKE_WORKING_DIRECTORY}/README.md"]
+condition.files_not_exist = ["${CARGO_MAKE_WORKING_DIRECTORY}/not-exist"]
