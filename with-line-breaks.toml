@@ -1,0 +1,9 @@
+[config]
+min_version = "0.26.1"
+skip_core_tasks = true
+
+[tasks.default]
+condition = {
+  files_exist = ["${CARGO_MAKE_WORKING_DIRECTORY}/README.md"],
+  files_not_exist = ["${CARGO_MAKE_WORKING_DIRECTORY}/not-exist"]
+}
