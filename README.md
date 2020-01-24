@@ -12,8 +12,8 @@ See also:
 We can set conditions as multiple lines with "dotted keys" [like this](https://github.com/mazgi-sandbox/202001.cargo-make-0.26.1-cannot-line-breaks-in-condition/blob/523e63582b110fe68d309f38985228691ea6b5ba/respect-toml-spec.toml#L10-L11).
 
 ```toml
-condition.foo = [...]
-condition.bar = [...]
+condition.foo = ["..."]
+condition.bar = ["..."]
 ```
 
 ---
